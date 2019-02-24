@@ -1,0 +1,115 @@
+<% include ../partials/header %>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+
+  $(document).ready(function(){
+  $("#myButton").click(function(){
+    var blogTitle=$("#blogTitle").val();
+    var comSentence=$("#comSentence").val();
+    var comImage=$("#comImage").val();
+    var blog=CKEDITOR.instances.myTextArea.getData();
+
+    var data ={
+      blogTitle:blogTitle,
+      comSentence:comSentence,
+      comImage:comImage,
+      blog:blog
+    }
+
+    $.post("addNewBlog", {data:data})
+      .then(function(addedBlog){
+        console.log(addedBlog);
+      });
+
+
+
+    });
+
+  });
+
+</script>
+
+
+<div style="background-color:black;opacity:0.85 ;height:65px"></div>
+<!-- Page Header -->
+
+  <br><br>
+<div class="container">
+  <h2 style="text-align:center; margin-bottom:40px;">Add new blog</h2>
+  <form>
+    <div class="form-group">
+      <label for="blogTitle">Blog Title</label>
+      <input type="text" class="form-control" id="blogTitle" placeholder="Blog Title">
+    </div>
+    <div class="form-group">
+      <label for="comSentence">Blog Commercial Sentence</label>
+      <input type="text" class="form-control" id="comSentence" placeholder="Blog Commercial Sentence">
+    </div>
+    <div class="form-group">
+      <label for="comImage">Blog Commercial Image</label>
+      <input type="text" class="form-control" id="comImage" placeholder="Blog Commercial Image">
+    </div>
+    <textarea name="editor" id="myTextArea"></textarea>
+  <button id="myButton" class="btn btn-primary">Submit</button>
+
+  </form>
+
+</div>
+
+
+
+
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<!-- Custom scripts for this template -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
+<script>
+                        CKEDITOR.replace( 'editor' );
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+
+<!-- Page Header -->
+ <header class="masthead" style="background-image: url('<%= foundBlog.comImage%>')">
+   <div class="overlay"></div>
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-8 col-md-10 mx-auto">
+         <div class="page-heading">
+           <h1><%=foundBlog.title%></h1>
+           <h2 clas="subheading"><%=foundBlog.comSentence%></h2>
+           <span class=meta>Posted by <a href="#">Yusuf Ali Çezik</a>
+            <%=foundBlog.date%>
+           </span>
+         </div>
+       </div>
+     </div>
+   </div>
+ </header>
+
+
+ <article>
+   <div class="conrainer">
+     <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <%-foundBlog.blog%>
+        </div>
+      </div>
+   </div>
+ </article>
+
+
+
+   </script>
+
+ </script>
+
+ <% include ../partials/footer %>
